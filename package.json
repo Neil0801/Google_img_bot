@@ -1,0 +1,28 @@
+{
+  "name": "node_js_web_scraping",
+  "version": "1.0.0",
+  "description": "web scraping , using Node.js",
+  "main": "google_img_bot.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Neil0801/Node.js_web_scraping/tree/master/google_img_bot"
+  },
+  "keywords": [
+    "web",
+    "crawler",
+    "nodejs",
+    "nightmare",
+    "javascript",
+    "scraping"
+  ],
+  "author": "Neil",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "jsdom": "^16.2.2",
+    "moment": "^2.27.0",
+    "nightmare": "^3.0.2",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "base64-to-image": "^1.0.2"
+  }
+}
