@@ -15,8 +15,7 @@
 2. jsdom": "^16.2.2"
 3. moment": "^2.27.0"
 4. nightmare": "^3.0.2"
-5. selenium-webdriver": "^4.0.0-alpha.7"
-6. base64-to-image": "^1.0.2
+5. base64-to-image": "^1.0.2
 ## 使用方法:
 ### 套件工具:
     npm i --save
