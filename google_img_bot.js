@@ -8,7 +8,7 @@ const base64Img = require('base64-to-image')
 const util = require('util');
 const exec = util.promisify( require('child_process').exec );
 
-let keyword = ' meme' //你要的ketword
+let keyword = ' meme' //你要的keyword
 let html 
 let arrImg = []
 let arrBase64 = []
@@ -85,15 +85,11 @@ async function clickForMore(){
                 .find('div.pxAole>div.tvh9oe.BIB1wf>c-wiz>div>div>div>div:nth-of-type(2)>a>img')
                 .attr('src')
             if (regex.test(img) == true) {
-                // console.log('perfect')
                 arrImg.push(img)
             } 
             else if (bs64Regex.test(img) == true) {
                 arrBase64.push(img)
-                // console.log('bs64')
             } else {
-                // console.log('wtf')
-                // console.log(img)
             }
         } catch(err){
             console.log(err)
@@ -151,12 +147,12 @@ async function asyncArray(functionList){
 (
     async function (){
         await asyncArray([
-            init,
-            visit,
-            scroll,
-            clickForMore,
-            bs64Img,
-            fileWrite
+            init, //初始化目錄
+            visit, //進入google img
+            scroll, //滾動頁面取得動態生成資料
+            clickForMore, //點入每張照片
+            bs64Img, //下載base64照片
+            fileWrite //下載一般照片
         ]).then(async ()=>{
             console.log('Done')
         });
