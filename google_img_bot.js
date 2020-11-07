@@ -8,7 +8,7 @@ const base64Img = require('base64-to-image')
 const util = require('util');
 const exec = util.promisify( require('child_process').exec );
 
-let keyword = ' meme' //你要的keyword
+let keyword = '  ' //你要的keyword
 let html 
 let arrImg = []
 let arrBase64 = []
@@ -22,11 +22,11 @@ const headers = {
     'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
 };
 async function init(){
-    if( ! await fs.existsSync(`downloads`) ){
-        await fs.mkdirSync(`downloads`, {recursive: true});
+    if( ! await fs.existsSync(`./google_img_bot/downloads`) ){
+        await fs.mkdirSync(`./google_img_bot/downloads`, {recursive: true});
     }    
-    if( ! await fs.existsSync(`downloads/meme`) ){
-        await fs.mkdirSync(`downloads/meme`, {recursive: true});
+    if( ! await fs.existsSync(`./google_img_bot/downloads/${keyword}`) ){
+        await fs.mkdirSync(`./google_img_bot/downloads/${keyword}`, {recursive: true});
     }
 }
 async function visit(){
@@ -39,13 +39,13 @@ async function visit(){
     .wait(500)
     .click('div.hdtb-mitem.hdtb-imb:nth-of-type(2)>a')
     .wait(500)
-    .click('div.PNyWAd.ZXJQ7c')
-    .wait(500)
-    .click('div.DZjDQ')
-    .wait(500)
-    .click('div.Ix6LGe>a.MfLWbb:nth-of-type(1)')
-    .wait(1000)
-    console.log('選擇器完畢')
+    // .click('div.PNyWAd.ZXJQ7c')
+    // .wait(500)
+    // .click('div.DZjDQ')
+    // .wait(500)
+    // .click('div.Ix6LGe>a.MfLWbb:nth-of-type(1)')
+    // .wait(1000)
+    // console.log('選擇器完畢')
     
 }
 async function scroll(){
@@ -63,7 +63,7 @@ async function scroll(){
 
         console.log(`totalOffset = ${totalOffset}, innerHeightOfWindow = ${innerHeightOfWindow}`);
 
-        if( totalOffset > 4000 ){
+        if( totalOffset > 400 ){
             break;
         }
     }
@@ -128,7 +128,7 @@ async function fileWrite(){
             if (i == null) {
                 continue
             }
-            await exec(`curl -k -X GET "${i}" -o "downloads/img/${name}.png"`);
+            await exec(`curl -k -X GET "${i}" -o "./google_img_bot/downloads/${keyword}/${name}.png"`);
             name = name + 1
             console.log(name)
         } catch (error) {
